@@ -1,0 +1,159 @@
+.form {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form {
+  width: 450px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 5px 8px 8px -6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.form .formSection{
+    width: 450px !important;
+}
+
+form .heading{
+    width: 100%;
+    position: relative;
+}
+
+.heading h1{
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #664CA8;
+}
+
+
+
+.heading p{
+    font-size: 1.05rem;
+    margin: 10px 0;
+    color: #838181;
+}
+
+.heading img{
+    height: 100px;
+    margin: 15px 0 10px 0;
+    animation: 1s rocate ease infinite;
+}
+
+@keyframes rocate{
+    0%{
+        transform: translateY(-10px);
+    }
+
+    50%{
+        transform: translateY(0px);
+
+    }
+
+    100%{
+        transform: translateY(-10px);
+
+    }
+}
+
+.form form input {
+  width: 95%;
+  margin: 10px auto;
+  padding: 15px 10px;
+  border: 2px solid black;
+  outline: none;
+}
+
+form input[type="submit"]{
+    width: 95%;
+    padding: 15px;
+    background-color: #664CA8;
+    color: #FFFFFF;
+    border: 2px solid #664CA8;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover{
+    background: #ff6600;
+    border: 2px solid #ff6600;
+}
+
+.google_signUp{
+    width: 100%;
+}
+
+.google_icon{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    position: relative;
+}
+
+.google_icon:hover{
+    color: rgb(125, 122, 122);
+    padding: 10px 30px;
+}
+
+
+.google_icon img{
+    height: 25px;
+}
+
+.google_icon h1{
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 70px;
+}
+
+.google_icon i{
+    font-size: 1.5rem;
+}
+
+.login_details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.login_details a{
+    color: #664CA8;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.login_details a:hover{
+    color: #ff6600;
+}
+
+
+/* ******************* Media Query ************************** */
+
+@media screen and (max-width: 600px){
+    .form form {
+        width: 95%;
+      }
+
+      .form .formSection{
+        width: 95% !important;
+    }
+}
+
+
+
