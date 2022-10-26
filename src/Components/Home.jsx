@@ -28,7 +28,6 @@ const Home = () => {
       <div className="container_section">
         {apiData.map((elment, index) => (
           <div className="card_section" key={index}>
-          
             {elment.urlToImage ? (
               <img src={elment.urlToImage} alt="This Images" />
             ) : (
@@ -37,19 +36,25 @@ const Home = () => {
                 alt="This Images"
               />
             )}
-          <div className="apiContent">
-          <h1 className="titleName">{elment.source.name}</h1>
-      <div className="content_between">
-      <h1 className="titleAuthor">{elment.author}</h1>
-          <h1 className="titlePublishedAt">{elment.publishedAt}</h1>
-      </div>
-          <h1 className="titleTitile">{elment.title}</h1>
-          <p className="description">{elment.description}</p>
-          <a href={elment.url} target="_Blank">Click</a>
-          </div>
+            <div className="apiContent">
+              <h1 className="titleName">{elment.source.name}</h1>
+              <div className="content_between">
+                <h1 className="titleAuthor">{elment.author}</h1>
+                <h1 className="titlePublishedAt">{elment.publishedAt}</h1>
+              </div>
+              <h1 className="titleTitile">{elment.title}</h1>
+              <p className="description">{elment.description}</p>
+              <a href={elment.url} target="_Blank">
+                Click
+              </a>
+            </div>
           </div>
         ))}
       </div>
+
+      <a href="#" className="angleUp">
+        <i className="fa-sharp fa-solid fa-angle-up"></i>
+      </a>
     </>
   );
 };

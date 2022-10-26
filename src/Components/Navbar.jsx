@@ -23,9 +23,11 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
+
+
   return (
     <>
-      <header>
+      <header className="header">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
