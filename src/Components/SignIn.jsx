@@ -4,7 +4,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate, Link } from "react-router-dom";
 import "../App.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import swal from "sweetalert";
 
 const SignIn = () => {
@@ -34,11 +39,40 @@ const SignIn = () => {
           toast("Thanks");
         })
         .catch((error) => {
-          const errorCode = error.code
+          const errorCode = error.code;
           swal("Sorry", errorCode, "error");
         });
       // firebase end
     }
+  };
+
+  // google Pop
+  const googlePop = () => {
+    const provider = new GoogleAuthProvider();
+    console.log(provider);
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+      console.log(credential);
+
+        const user = result.user;
+
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+   
+
+      
+
+        swal("Sorry", errorCode, "error");
+
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(credential);
+      });
   };
 
   return (
@@ -76,7 +110,7 @@ const SignIn = () => {
           <input type="submit" value="Submit" />
 
           <div className="google_signUp">
-            <div className="google_icon">
+            <div className="google_icon" onClick={googlePop}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"
                 alt="google sign up icon"

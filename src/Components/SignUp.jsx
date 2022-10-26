@@ -76,8 +76,8 @@ const SignUp = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-
+        // const token = credential.accessToken;
+console.log(credential);
         const user = result.user;
 
         console.log(user);
@@ -85,9 +85,9 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorMessage = error.message;
 
-        const email = error.customData.email;
+        // const email = error.customData.email;
 
         swal("Sorry", errorCode, "error");
 
