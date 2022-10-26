@@ -3,8 +3,10 @@ import Navbar from "./Navbar";
 import "../App.css";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = (props) => {
   const [apiData, setApiData] = useState([]);
+
+
 
   const api = async () => {
     const response = await fetch(
@@ -13,7 +15,6 @@ const Home = () => {
     const data = await response.json();
 
     setApiData(data.articles);
-    console.log(data.articles);
   };
 
   // author
@@ -24,7 +25,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar sendData={props.props}/>
       <div className="container_section">
         {apiData.map((elment, index) => (
           <div className="card_section" key={index}>

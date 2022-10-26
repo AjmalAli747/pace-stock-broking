@@ -11,6 +11,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 import swal from "sweetalert";
 
@@ -54,7 +55,11 @@ const SignUp = () => {
           toast("Thanks");
           console.log(user);
 
-          navigate("/");
+          updateProfile(user, {
+            displayName: userName,
+          });
+
+          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -77,17 +82,14 @@ const SignUp = () => {
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
-console.log(credential);
+        console.log(credential);
         const user = result.user;
 
         console.log(user);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
-        // const errorMessage = error.message;
-
-        // const email = error.customData.email;
 
         swal("Sorry", errorCode, "error");
 

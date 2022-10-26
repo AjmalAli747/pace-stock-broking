@@ -35,7 +35,7 @@ const SignIn = () => {
           // Signed in
           const user = userCredential.user;
           console.log("Sign In", user);
-          navigate("/");
+          navigate("/home");
           toast("Thanks");
         })
         .catch((error) => {
@@ -60,7 +60,7 @@ const SignIn = () => {
         const user = result.user;
 
         console.log(user);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -100,7 +100,7 @@ const SignIn = () => {
           />
 
           <div className="login_details">
-            <Link to="/signup" className="link_href">
+            <Link to="/" className="link_href">
               Sign Up
             </Link>
             <Link to="#" className="link_href">

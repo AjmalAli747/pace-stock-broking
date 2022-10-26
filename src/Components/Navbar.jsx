@@ -12,9 +12,12 @@ import {
 } from "@mui/material";
 
 import { PersonAdd, Settings, Logout } from "@mui/icons-material";
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigoter = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,6 +27,16 @@ const Navbar = () => {
   };
 
 
+
+const logoutFunction = () => {
+  const auth = getAuth();
+signOut(auth).then(() => {
+  console.log(auth);
+  navigoter("/");
+}).catch((error) => {
+  console.log(error);
+})
+}
 
   return (
     <>
@@ -153,10 +166,10 @@ const Navbar = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem>
-          <Avatar /> Profile
+          <Avatar /> {props.sendData.displayName? props.sendData.displayName : "Sign Up"}
         </MenuItem>
         <MenuItem>
-          <Avatar /> My account
+          <Avatar /> {props.sendData.email? props.sendData.email : "Sign Up"}
         </MenuItem>
         <Divider />
         <MenuItem>
@@ -171,7 +184,7 @@ const Navbar = () => {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={logoutFunction}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
